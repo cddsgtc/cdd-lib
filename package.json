@@ -1,0 +1,22 @@
+{
+  "name": "my-lib",
+  "version": "1.0.0",
+  "description": "个人常用库积累",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/cddsgtc/my-lib.git"
+  },
+  "author": "cdd",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "qs": "^6.5.1"
+  }
+}
