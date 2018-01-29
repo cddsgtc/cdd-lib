@@ -14,6 +14,7 @@ class _Time {
   timeSeparator: string
   date: string
   time: string
+  ap: string
   everySecond?(parms: any): any
   constructor() {
     this.init()
@@ -43,6 +44,7 @@ class _Time {
     this.hour = date.getHours() + 1
     this.minutes = date.getMinutes() + 1
     this.seconds = date.getSeconds() + 1
+    this.ap = this.hour <= 12 ? 'AM' : 'PM'
     this.time = '' + this.formNumber(this.hour) + this.timeSeparator + this.formNumber(this.minutes) + this.timeSeparator + this.formNumber(this.seconds)
   }
   formNumber(num: number): string {
