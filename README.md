@@ -19,7 +19,7 @@ interface $time {
   timeSeparator: string
   date: string
   time: string
-  ap:string
+  ap:stringxx
   start(): any
   stop(): any
   main(): any
