@@ -5,13 +5,13 @@
 * 类
 * 实例属性与方法
 ```typescript
-interface $time {
+declare function _Time(): $time;//构造函数
+declare interface $time {//time实例
   state: string
   isRuning: boolean
-  _id: string
   hour: number
-  minute: number
-  second: number
+  minutes: number
+  seconds: number
   year: number
   month: number
   day: number
@@ -19,10 +19,9 @@ interface $time {
   timeSeparator: string
   date: string
   time: string
-  ap:stringxx
+  ap: string
   start(): any
   stop(): any
-  main(): any
   everySecond?(parms?: any): any
 }
 ```

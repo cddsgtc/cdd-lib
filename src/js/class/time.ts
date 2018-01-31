@@ -3,7 +3,6 @@ class _Time {
   isRuning: boolean
   private _id: string
   private __date: any
-  // private _time: any
   hour: number
   minutes: number
   seconds: number
