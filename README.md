@@ -15,6 +15,7 @@ declare interface $time {//time实例
   year: number
   month: number
   day: number
+  duration:number
   dateSeparator: string
   timeSeparator: string
   date: string
@@ -22,6 +23,6 @@ declare interface $time {//time实例
   ap: string
   start(): any
   stop(): any
-  everySecond?(parms?: any): any
+  everyDuration?(parms?: any): any
 }
 ```
