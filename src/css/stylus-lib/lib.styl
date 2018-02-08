@@ -1,0 +1,96 @@
+
+@import 'base-config.styl';
+
+// 获取百分比
+getp($s, $f) {
+  percentage(($s / $f));
+}
+
+getf($f) {
+  ($f / $root-font-size) rem;
+}
+
+/*
+ * 媒体查询
+ * @params
+ */
+media_queries = {
+  xs: 'only screen and (max-width: 539px)',
+  sm: 'only screen and (min-width: 540px)',
+  md: 'only screen and (min-width: 768px)',
+  lg: 'only screen and (min-widht: 960px)'
+};
+
+// 媒体查询
+$media(breakpoints) {
+  conditions = ();
+
+  for breakpoint in breakpoints {
+    push(conditions, media_queries[breakpoint]);
+  }
+
+  conditions = join(', ', conditions);
+
+  @media conditions {
+    {block};
+  }
+}
+
+// 设置字体
+$text($fz, $color = #333333, $important = false) {
+  if ($important) {
+    font-size: $fz !important;
+    color: $color !important;
+    // letter-spacing: $ls !important;
+  } else {
+    font-size: $fz;
+    color: $color;
+  }
+}
+
+// 设置宽高
+$wh($width, $height = '') {
+  if (!$height) {
+    width: $width;
+    height: $width;
+  } else {
+    width: $width;
+    height: $height;
+  }
+}
+
+// margin系列
+$mt($m) {
+  margin-top: $m;
+}
+
+$mb($m) {
+  margin-bottom: $m;
+}
+
+$ml($m) {
+  margin-left: $m;
+}
+
+$mr($m) {
+  margin-right: $m;
+}
+
+// line-height
+$lh($h) {
+  line-height: $h;
+}
+
+// border
+$br($b,$s,$c) {
+  border-right: $b $s $c;
+}
+$bl($b,$s,$c) {
+  border-left: $b $s $c;
+}
+$bt($b,$s,$c) {
+  border-top: $b $s $c;
+}
+$bb($b,$s,$c) {
+  border-bottom: $b $s $c;
+}

@@ -1,0 +1,48 @@
+@import 'lib.styl';
+
+pointer() {
+  &:hover {
+    cursor: pointer;
+    {block};
+  }
+}
+
+disabled() {
+  &:hover {
+    cursor: not-allowed;
+    {block};
+  }
+}
+
+main-wrap($h = '') {
+  width: 100%;
+
+  if ($h) {
+    height: $h;
+  } else {
+    height: auto;
+  }
+
+  {block};
+}
+
+main-container($w) {
+  height: 100%;
+  width: $w;
+  margin: 0 auto;
+  {block};
+}
+
+scrollbar() {
+  $base = #bce2fa; // 基本颜色
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: lighten($base, 50%);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: darken($base, 30%);
+    border-radius: 8px;
+  }
+}
