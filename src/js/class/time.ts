@@ -1,21 +1,25 @@
 class _Time {
-  state: string
-  isRuning: boolean
-  private _id: string
-  private __date: any
-  hour: number
-  minutes: number
-  seconds: number
-  year: number
-  month: number
-  day: number
-  dateSeparator: string
-  timeSeparator: string
-  date: string
-  time: string
-  ap: string
-  everySecond?(parms: any): any
-  constructor() {
+  static _id:any
+  state: string = ''
+  isRuning: boolean = false
+  private _id: string = ''
+  private __date: any = ''
+  // private _time: any
+  hour: number = 0
+  minutes: number = 0
+  seconds: number = 0
+  year: number = 1990
+  month: number = 0
+  day: number = 0
+  duration: number = 1000
+  dateSeparator: string = '-'
+  timeSeparator: string = ':'
+  date: string = ''
+  time: string = ''
+  ap: string = ''
+  everyDuration?(parms: any): any
+  constructor(duration: number = 1000) {
+    this.duration = duration
     this.init()
   }
   private init() {
@@ -23,7 +27,7 @@ class _Time {
     this.timeSeparator = ':'
     this.dateSeparator = '-'
     this._date = this.__date = new Date()
-    this._time = this._date
+    this._time = this._date//初始化时分秒
   }
   // 日期
   get _date(): any {
@@ -40,7 +44,7 @@ class _Time {
     return this.__date.getTime()
   }
   set _time(date: any) {
-    this.hour = date.getHours() + 1
+    this.hour = date.getHours()
     this.minutes = date.getMinutes() + 1
     this.seconds = date.getSeconds() + 1
     this.ap = this.hour <= 12 ? 'AM' : 'PM'
@@ -57,22 +61,28 @@ class _Time {
   // 技术计时
   stop() {
     this.isRuning = false
+    clearTimeout(_Time._id)
+    console.log(`time is up.`)
+  }
+  // 静态方法
+  static formatT(date: string) {
+    return (new Date(Date.parse(date.split(' ').join('T')))).getTime()
+
   }
   // 主程序
   private main = () => {
     let self = this
     if (this.isRuning) {
-      this._time = this._date = new Date()
-      this.everySecond && (this.everySecond(this))
-      setTimeout(() => {
+      this._time = this._date = this.__date = new Date()
+      this.everyDuration && (this.everyDuration(this))
+      _Time._id = setTimeout(() => {
         self.main()
-      }, 1000);
+      }, this.duration);
     } else {
-      console.log(`time is stop`)
+      clearTimeout(_Time._id)
     }
   }
 }
-
 export {
   _Time
 }
