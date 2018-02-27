@@ -13,7 +13,6 @@
         constructor(duration = 1000) {
             this.state = '';
             this.isRuning = false;
-            this._id = '';
             this.__date = '';
             // private _time: any
             this.hour = 0;
@@ -36,12 +35,12 @@
                 if (this.isRuning) {
                     this._time = this._date = this.__date = new Date();
                     this.everyDuration && (this.everyDuration(this));
-                    _Time._id = setTimeout(() => {
+                    this._id = setTimeout(() => {
                         self.main();
                     }, this.duration);
                 }
                 else {
-                    clearTimeout(_Time._id);
+                    clearTimeout(this._id);
                 }
             };
             this.duration = duration;
@@ -58,7 +57,7 @@
         }
         set dateSeparator(separator) {
             this._dateSeparator = separator;
-            this._date = new Date();
+            this._date = this.__date;
         }
         // 时间分隔符
         get timeSeparator() {
@@ -66,7 +65,7 @@
         }
         set timeSeparator(separator) {
             this._timeSeparator = separator;
-            this._time = this._date;
+            this._time = this.__date;
         }
         // 日期
         get _date() {
@@ -100,7 +99,7 @@
         // 技术计时
         stop() {
             this.isRuning = false;
-            clearTimeout(_Time._id);
+            clearTimeout(this._id);
             console.log(`time is up.`);
         }
         // 静态方法

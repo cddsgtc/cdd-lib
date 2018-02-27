@@ -8,6 +8,8 @@ declare interface $time {//time实例
   year: number
   month: number
   day: number
+  dateSeparator: string
+  timeSeparator: string
   date: string
   time: string
   ap: string
