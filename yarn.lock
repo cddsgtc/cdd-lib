@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@types/lodash@^4.14.104":
+  version "4.14.104"
+  resolved "http://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.104.tgz#53ee2357fa2e6e68379341d92eb2ecea4b11bb80"
+
 axios@^0.17.1:
   version "0.17.1"
   resolved "http://registry.npm.taobao.org/axios/download/axios-0.17.1.tgz#2d8e3e5d0bdbd7327f91bc814f5c57660f81824d"
@@ -24,6 +28,10 @@ follow-redirects@^1.2.5:
 is-buffer@^1.1.5:
   version "1.1.6"
   resolved "http://registry.npm.taobao.org/is-buffer/download/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
+
+lodash@^4.17.5:
+  version "4.17.5"
+  resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
 
 ms@2.0.0:
   version "2.0.0"

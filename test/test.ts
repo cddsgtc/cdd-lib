@@ -2,4 +2,16 @@
 import {_Time} from '../src/js/class/time'
 let time:$time = new _Time()
 
-console.log(`time is`,time)
+// time.dateSeparator = '-'
+console.log(`time is`,time.year,time.month,time.day,time.hour,time.minutes,time.seconds)
+
+// function test1() {
+//     console.log(`测试`)
+// }
+// let count = 0
+// time.everyDuration = function(){
+//   test1()
+//   ++count
+//   if(count >=10) time.stop()
+// }
+// time.start()

@@ -12,8 +12,10 @@ class _Time {
   month: number = 0
   day: number = 0
   duration: number = 1000
-  dateSeparator: string = '-'
-  timeSeparator: string = ':'
+  // dateSeparator: string = '-'
+  private _dateSeparator:string = '-'
+  // timeSeparator: string = ':'
+  private _timeSeparator: string = ':'
   date: string = ''
   time: string = ''
   ap: string = ''
@@ -24,10 +26,24 @@ class _Time {
   }
   private init() {
     this.isRuning = false
-    this.timeSeparator = ':'
-    this.dateSeparator = '-'
     this._date = this.__date = new Date()
     this._time = this._date//初始化时分秒
+  }
+  // 日期分割符
+  get dateSeparator(){
+    return this._dateSeparator
+  }
+  set dateSeparator(separator:string){
+    this._dateSeparator = separator
+    this._date = new Date()
+  }
+  // 时间分隔符
+  get timeSeparator(){
+    return this._timeSeparator
+  }
+  set timeSeparator(separator:string){
+    this._timeSeparator = separator
+    this._time = this._date
   }
   // 日期
   get _date(): any {
@@ -45,8 +61,8 @@ class _Time {
   }
   set _time(date: any) {
     this.hour = date.getHours()
-    this.minutes = date.getMinutes() + 1
-    this.seconds = date.getSeconds() + 1
+    this.minutes = date.getMinutes()
+    this.seconds = date.getSeconds()
     this.ap = this.hour <= 12 ? 'AM' : 'PM'
     this.time = '' + this.formNumber(this.hour) + this.timeSeparator + this.formNumber(this.minutes) + this.timeSeparator + this.formNumber(this.seconds)
   }
