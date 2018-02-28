@@ -1,0 +1,38 @@
+# 查看awesome官网: http://EditorConfig.org
+
+# top-most EditorConfig file
+# 顶级文件
+root = true
+
+# Unix-style newlines with a newline ending every file
+# Unix风格每个文件的新行带有新行结束
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+
+# Matches multiple files with brace expansion notation
+# 使用大括号匹配多个文件
+# Set default charset设置默认编码方式
+
+# 4 space indentation
+# 设置缩进为4格
+[*.{js,ts,html,css,style,vue,pug,jade}]
+indent_style = space
+indent_size = 2
+
+# Tab indentation (no size specified)tab键的缩进
+[Makefile]
+indent_style = tab
+
+# Indentation override for all JS under lib directory
+# 覆盖所有lib目录下的js文件的缩进
+[lib/**.js]
+indent_style = space
+indent_size = 2
+
+# Matches the exact files either package.json or .travis.yml
+# 精确匹配package.json或者.travis.yml文件
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2

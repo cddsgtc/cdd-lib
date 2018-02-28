@@ -12,21 +12,22 @@
     /// <reference path="init.d.ts"/>
     // 第一部分，对element的添加
     require("./promise.min");
-    const vue_1 = require("vue");
-    const element_ui_1 = require("element-ui");
+    var vue_1 = require("vue");
+    var element_ui_1 = require("element-ui");
     // 消息包装
-    const element_ui_package_1 = require("./element-ui-package");
+    var element_ui_package_1 = require("./element-ui-package");
     // axios的包装
-    const package_axios_1 = require("./package-axios");
+    var package_axios_1 = require("./package-axios");
     // 接口
-    const _api_1 = require("./_api");
+    var _api_1 = require("./_api");
     // 组件列表
-    let _comp = [element_ui_1.Button, element_ui_1.Select, element_ui_1.Checkbox, element_ui_1.CheckboxGroup, element_ui_1.Pagination, element_ui_1.Popover];
+    var _comp = [element_ui_1.Button, element_ui_1.Select, element_ui_1.Checkbox, element_ui_1.CheckboxGroup, element_ui_1.Pagination, element_ui_1.Popover];
     // 使用
-    for (let item of _comp) {
+    for (var _i = 0, _comp_1 = _comp; _i < _comp_1.length; _i++) {
+        var item = _comp_1[_i];
         vue_1.default.use(item);
     }
-    let message = element_ui_1.Message; //由于模块不能直接使用所以需要赋值使用
+    var message = element_ui_1.Message; //由于模块不能直接使用所以需要赋值使用
     vue_1.default.prototype.msgbox = element_ui_1.MessageBox;
     vue_1.default.prototype.loading = element_ui_1.Loading.service;
     vue_1.default.prototype.msg = element_ui_package_1.packageElMsg(message);

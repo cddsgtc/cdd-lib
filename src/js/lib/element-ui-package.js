@@ -11,7 +11,8 @@
     Object.defineProperty(exports, "__esModule", { value: true });
     // 全局信息进行包装
     function packageElMsg(Message) {
-        return function ({ message = "", type = "info", duration = 3 }) {
+        return function (_a) {
+            var _b = _a.message, message = _b === void 0 ? "" : _b, _c = _a.type, type = _c === void 0 ? "info" : _c, _d = _a.duration, duration = _d === void 0 ? 3 : _d;
             switch (type) {
                 case 'info':
                 case 'success':
