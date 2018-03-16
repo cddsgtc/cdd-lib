@@ -17,3 +17,7 @@ declare interface $time {//time实例
   stop(): any
   everyDuration?(parms?: any): any
 }
+
+declare class Promise<T> {
+  static reject:any
+}

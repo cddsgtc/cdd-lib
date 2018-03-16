@@ -19,7 +19,7 @@ function preSetAxios(Msg: any): void {
     return req
   }, (err: any) => {
     console.error(`请求错误`, err)
-    Msg({type:'error',message:'请求错误',duration:3})
+    Msg({ type: 'error', message: '请求错误', duration: 3 })
     return Promise.reject(err)
   })
   // 返回出错
@@ -27,13 +27,13 @@ function preSetAxios(Msg: any): void {
     let result = res.data
     if (result.error_code == 10001) {
       console.log(`请登录`)
-      Msg({type:'error',message:'请登录'})
+      Msg({ type: 'error', message: '请登录' })
       return Promise.reject(result)
     } else if (result.error_code != 0) {
       console.log('非零', result);
       Msg({
-        type:'error',
-        message:result.message
+        type: 'error',
+        message: result.message
       })
       return Promise.reject(result)
     } else if (result.error_code == 0) {
@@ -41,7 +41,7 @@ function preSetAxios(Msg: any): void {
     }
   }, (err: any) => {
     console.error(`请求出错`, err)
-    Msg({type:'error',message:'请求出错'+err.toString(),duration:3})
+    Msg({ type: 'error', message: '请求出错' + err.toString(), duration: 3 })
     return Promise.reject(err)
   })
 }
